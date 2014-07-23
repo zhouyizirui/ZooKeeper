@@ -31,6 +31,8 @@ private:
     CCArray * frontingPlates;
     CCLabelTTF * m_labelScore;
     bool stopGame;
+    bool increaseLevel;
+    bool refreshScore;
     int manIndex;
     int score;
     int levelIndex;
@@ -54,6 +56,7 @@ public:
     void lionBackEnded();
     void menuBackCallback(CCObject *pSender);
     void changeScore();
+    void checkScore();
 };
 
 class GameSceneLoader : public cocos2d::extension::CCLayerLoader

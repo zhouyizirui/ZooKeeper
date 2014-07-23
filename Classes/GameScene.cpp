@@ -39,7 +39,9 @@ GameScene::GameScene()
 ,backingLions(NULL)
 ,frontingPlates(NULL)
 ,stopGame(false)
-,levelIndex(5)
+,increaseLevel(false)
+,refreshScore(false)
+,levelIndex(6)
 ,score(0)
 ,manIndex(0)
 {
@@ -133,7 +135,7 @@ bool GameScene::init()
     frontingPlates->retain();
     
     this->schedule(schedule_selector(GameScene::update));
-    this->schedule(schedule_selector(GameScene::generate), 5.0f);
+    this->schedule(schedule_selector(GameScene::generate), LEVEL_SPEED[levelIndex]);
     
     return true;
 }
@@ -230,6 +232,7 @@ void GameScene::update(cocos2d::CCTime dt){
             SimpleAudioEngine::sharedEngine()->playEffect("glass.wav",false);
             
             score-=50;
+            refreshScore=true;
         }
     }
     for(int m = 0; m<frontingPlates->count(); m++)
@@ -245,6 +248,7 @@ void GameScene::update(cocos2d::CCTime dt){
                 SimpleAudioEngine::sharedEngine()->playEffect("glass.wav",false);
                 
                 score-=50;
+                refreshScore=true;
             }
             else
             {
@@ -271,6 +275,7 @@ void GameScene::update(cocos2d::CCTime dt){
             this->removeChild(lion->getParent());
             
             score+=100;
+            refreshScore=true;
             
             SimpleAudioEngine::sharedEngine()->preloadEffect("Ding.wav");
             SimpleAudioEngine::sharedEngine()->playEffect("Ding.wav",false);
@@ -314,8 +319,7 @@ void GameScene::update(cocos2d::CCTime dt){
         }
     }
     changeScore();
-
-    
+    checkScore();
 }
 
 void GameScene::generate(cocos2d::CCTime dt)
@@ -405,16 +409,27 @@ void GameScene::lionBackEnded()
 
 void GameScene::changeScore()
 {
-    char thescore[20];
-    sprintf(thescore, "%d", score);
-    char title[20] = "Scores:";
-    strcat(title, thescore);
-    m_labelScore->setString(title);
-    
-    if(score>0 && score%1000==0)
+    if(refreshScore)
     {
-        levelIndex++;
-        if(levelIndex>4) levelIndex=4;
+        char thescore[20];
+        sprintf(thescore, "%d", score);
+        char title[20] = "Scores:";
+        strcat(title, thescore);
+        m_labelScore->setString(title);
+        refreshScore=false;
+        if(score>0 && score%1000==0) increaseLevel=true;
+    }
+}
+
+void GameScene::checkScore()
+{
+    if(increaseLevel)
+    {
+        levelIndex--;
+        if(levelIndex<0) levelIndex=0;
+        this->unschedule(schedule_selector(GameScene::generate));
+        this->schedule(schedule_selector(GameScene::generate), LEVEL_SPEED[levelIndex]);
+        increaseLevel=false;
     }
 }
 
