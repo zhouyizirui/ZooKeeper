@@ -1,5 +1,5 @@
 obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/AboutScene.o: \
- jni/../../Classes/AboutScene.cpp jni/../../Classes/AboutScene.h \
+ jni/../../Classes/AboutScene.cpp jni/../../Classes/pre_declaration.h \
  /Users/zhouyizirui/Works/Android/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream \
  /Users/zhouyizirui/Works/Android/cocos2d-x-2.2.4/projects/ZooKeeper/proj.android/../../../cocos2dx/include/cocos2d.h \
  /Users/zhouyizirui/Works/Android/cocos2d-x-2.2.4/projects/ZooKeeper/proj.android/../../../cocos2dx/include/ccConfig.h \
@@ -465,9 +465,12 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/AboutScene.o: \
  /Users/zhouyizirui/Works/Android/cocos2d-x-2.2.4/projects/ZooKeeper/proj.android/../../../extensions/spine/CCSkeletonAnimation.h \
  /Users/zhouyizirui/Works/Android/cocos2d-x-2.2.4/projects/ZooKeeper/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h \
  /Users/zhouyizirui/Works/Android/cocos2d-x-2.2.4/projects/ZooKeeper/proj.android/../../../CocosDenshion/android/../include/Export.h \
- jni/../../Classes/Background.h
+ jni/../../Classes/LionSprite.h jni/../../Classes/HighScore.h \
+ jni/../../Classes/QuitSprite.h jni/../../Classes/AboutScene.h \
+ jni/../../Classes/Background.h jni/../../Classes/MainScene.h \
+ jni/../../Classes/GameScene.h jni/../../Classes/AudioControl.h
 
-jni/../../Classes/AboutScene.h:
+jni/../../Classes/pre_declaration.h:
 
 /Users/zhouyizirui/Works/Android/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream:
 
@@ -1399,4 +1402,18 @@ jni/../../Classes/AboutScene.h:
 
 /Users/zhouyizirui/Works/Android/cocos2d-x-2.2.4/projects/ZooKeeper/proj.android/../../../CocosDenshion/android/../include/Export.h:
 
+jni/../../Classes/LionSprite.h:
+
+jni/../../Classes/HighScore.h:
+
+jni/../../Classes/QuitSprite.h:
+
+jni/../../Classes/AboutScene.h:
+
 jni/../../Classes/Background.h:
+
+jni/../../Classes/MainScene.h:
+
+jni/../../Classes/GameScene.h:
+
+jni/../../Classes/AudioControl.h:

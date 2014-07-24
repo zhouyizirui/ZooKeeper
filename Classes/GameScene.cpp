@@ -220,6 +220,8 @@ void GameScene::update(cocos2d::CCTime dt){
         if(meet->getPosition().x<0.1) {
             meetArray->removeObjectAtIndex(i);
             this->removeChild(meet);
+            
+            i--; //IMPORTANT!!!!
         }
     }
     for(int j=0; j<plateArray->count(); j++)
@@ -229,7 +231,7 @@ void GameScene::update(cocos2d::CCTime dt){
         {
             plateArray->removeObjectAtIndex(j);
             this->removeChild(plate);
-
+            j--; //IMPORTANT!!!
             AudioControl::playPlateEffect();
             
             score-=50;
@@ -244,6 +246,9 @@ void GameScene::update(cocos2d::CCTime dt){
             if(!manSprite->boundingBox().intersectsRect(newplate->boundingBox()))
             {
                 frontingPlates->removeObjectAtIndex(m);
+                
+                m--;//IMPORTANT!!!
+                
                 this->removeChild(newplate);
                 
                 AudioControl::playPlateEffect();
@@ -254,6 +259,9 @@ void GameScene::update(cocos2d::CCTime dt){
             else
             {
                 frontingPlates->removeObjectAtIndex(m);
+                
+                m--;//IMPORTANT!!!
+                
                 this->removeChild(newplate);
             }
         }
@@ -273,6 +281,9 @@ void GameScene::update(cocos2d::CCTime dt){
             
             
             lionArray->removeObjectAtIndex(k);
+            
+            k--; //IMPORTANT!!!
+            
             this->removeChild(lion->getParent());
             
             score+=100;
@@ -302,6 +313,9 @@ void GameScene::update(cocos2d::CCTime dt){
                 this->removeChild(meet);
                 CCSprite *plate = (CCSprite*)plateArray->objectAtIndex(i);
                 plateArray->removeObjectAtIndex(i);
+                
+                i--; //IMPORTANT!!!!!!!
+                
                 this->removeChild(plate);
                 
                 lion->stopActionByTag(FRONT_ACTION);
@@ -336,6 +350,8 @@ void GameScene::generate(cocos2d::CCTime dt)
     lionArray->addObject(sprite);
     batchNode->addChild(sprite);
     lionNumber++;
+    
+    CCLOG("The number of generated lions %d", lionArray->count());
         
     this->addChild(batchNode, 1);
     batchNode->setPosition(CCPointZero);
@@ -361,38 +377,50 @@ void GameScene::generate(cocos2d::CCTime dt)
 
 void GameScene::gameOver()
 {
+    CCLOG("We are in the game over");
     for(int i=0; i<meetArray->count(); i++)
     {
-        CCSprite *meet = (CCSprite*)meetArray->objectAtIndex(i);
-        meetArray->removeObjectAtIndex(i);
+        CCSprite *meet = (CCSprite*)meetArray->objectAtIndex(0);
+        meetArray->removeObjectAtIndex(0);
         this->removeChild(meet);
+        i--;
     }
     for(int i=0; i<plateArray->count(); i++)
     {
-        CCSprite *plate = (CCSprite*)plateArray->objectAtIndex(i);
-        plateArray->removeObjectAtIndex(i);
+        CCSprite *plate = (CCSprite*)plateArray->objectAtIndex(0);
+        plateArray->removeObjectAtIndex(0);
         this->removeChild(plate);
+        i--;
     }
     for(int i=0; i<frontingPlates->count(); i++)
     {
-        CCSprite *newplate = (CCSprite*)frontingPlates->objectAtIndex(i);
-        frontingPlates->removeObjectAtIndex(i);
+        CCSprite *newplate = (CCSprite*)frontingPlates->objectAtIndex(0);
+        frontingPlates->removeObjectAtIndex(0);
         this->removeChild(newplate);
+        i--;
     }
+    CCLOG("The number of lionArray count %d", lionArray->count());
     for(int i=0; i<lionArray->count(); i++)
     {
-        LionSprite *lion = (LionSprite*)lionArray->objectAtIndex(i); //FIX ME
-        lionArray->removeObjectAtIndex(i);
+        LionSprite *lion = (LionSprite*)lionArray->objectAtIndex(0); //FIX ME
+        lionArray->removeObjectAtIndex(0);
         this->removeChild(lion->getParent());
+        i--;
     }
     for(int i=0; i<backingLions->count(); i++)
     {
-        LionSprite *lion = (LionSprite*)backingLions->objectAtIndex(i); //FIX ME
-        backingLions->removeObjectAtIndex(i);
+        LionSprite *lion = (LionSprite*)backingLions->objectAtIndex(0); //FIX ME
+        backingLions->removeObjectAtIndex(0);
         this->removeChild(lion->getParent());
+        i--;
     }
     this->removeChild(manSprite);
     stopGame = true;
+    
+    this->unschedule(schedule_selector(GameScene::update));
+    this->unschedule(schedule_selector(GameScene::generate));
+    
+    
     CCLabelTTF *label = CCLabelTTF::create("Game Over", "Marker Felt", 38);
     label->setPosition(ccp(SCREEN_WIDTH/2, SCREEN_WIDTH/2));
     this->addChild(label);
@@ -428,6 +456,7 @@ void GameScene::boostLevel()
     if(increaseLevel)
     {
         levelIndex--;
+        CCLOG("The game level is %d", levelIndex);
         if(levelIndex<0) levelIndex=0;
         this->unschedule(schedule_selector(GameScene::generate));
         this->schedule(schedule_selector(GameScene::generate), LEVEL_SPEED[levelIndex]);
