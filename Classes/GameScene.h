@@ -36,6 +36,7 @@ private:
     int manIndex;
     int score;
     int levelIndex;
+    int lionNumber;
 public:
     GameScene();
     ~GameScene();
@@ -56,7 +57,7 @@ public:
     void lionBackEnded();
     void menuBackCallback(CCObject *pSender);
     void changeScore();
-    void checkScore();
+    void boostLevel();
 };
 
 class GameSceneLoader : public cocos2d::extension::CCLayerLoader

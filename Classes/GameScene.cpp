@@ -42,6 +42,7 @@ GameScene::GameScene()
 ,increaseLevel(false)
 ,refreshScore(false)
 ,levelIndex(6)
+,lionNumber(0)
 ,score(0)
 ,manIndex(0)
 {
@@ -328,7 +329,7 @@ void GameScene::update(cocos2d::CCTime dt){
         }
     }
     changeScore();
-    checkScore();
+    boostLevel();
 }
 
 void GameScene::generate(cocos2d::CCTime dt)
@@ -345,7 +346,8 @@ void GameScene::generate(cocos2d::CCTime dt)
     sprite->setOrientation(FRONT_ORIENTATION);
     lionArray->addObject(sprite);
     batchNode->addChild(sprite);
-    
+    lionNumber++;
+        
     this->addChild(batchNode, 1);
     batchNode->setPosition(CCPointZero);
     
@@ -431,11 +433,11 @@ void GameScene::changeScore()
         strcat(title, thescore);
         m_labelScore->setString(title);
         refreshScore=false;
-        if(score>0 && score%1000==0) increaseLevel=true; //FIX ME
+        if(lionNumber>0 && lionNumber%10==0) increaseLevel=true; //FIX ME
     }
 }
 
-void GameScene::checkScore()
+void GameScene::boostLevel()
 {
     if(increaseLevel)
     {
