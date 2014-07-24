@@ -146,13 +146,11 @@ void GameScene::menuBackCallback(CCObject *pSender)
 {
     
     CCDirector::sharedDirector()->popScene();
-    //SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
     AudioControl::resumeBackground();
 }
 
 bool GameScene::ccTouchBegan(CCTouch * touch, CCEvent * event)
 {
-    //CCLOG("The touch is began");
     TouchType touchType = judgeTouchType(touch->getLocation());
     currentType = touchType;
     changeSurface();
@@ -191,9 +189,7 @@ void GameScene::changeSurface(void)
             meet->runAction(meetMoveTo);
             CCMoveTo *plateMoveTo = CCMoveTo::create(Distance(startPoint, finalPosition)/MEET_BACKWARD_SPEED, finalPosition);
             plate->runAction(plateMoveTo);
-            
-            //SimpleAudioEngine::sharedEngine()->preloadEffect("throw.wav");
-            //SimpleAudioEngine::sharedEngine()->playEffect("throw.wav", false);
+
             AudioControl::playThrowEffect();
             
         } break;
@@ -233,9 +229,7 @@ void GameScene::update(cocos2d::CCTime dt){
         {
             plateArray->removeObjectAtIndex(j);
             this->removeChild(plate);
-            
-            //SimpleAudioEngine::sharedEngine()->preloadEffect("glass.wav");
-            //SimpleAudioEngine::sharedEngine()->playEffect("glass.wav",false);
+
             AudioControl::playPlateEffect();
             
             score-=50;
@@ -252,8 +246,6 @@ void GameScene::update(cocos2d::CCTime dt){
                 frontingPlates->removeObjectAtIndex(m);
                 this->removeChild(newplate);
                 
-                //SimpleAudioEngine::sharedEngine()->preloadEffect("glass.wav");
-                //SimpleAudioEngine::sharedEngine()->playEffect("glass.wav",false);
                 AudioControl::playPlateEffect();
                 
                 score-=50;
@@ -285,9 +277,7 @@ void GameScene::update(cocos2d::CCTime dt){
             
             score+=100;
             refreshScore=true;
-            
-            //SimpleAudioEngine::sharedEngine()->preloadEffect("Ding.wav");
-            //SimpleAudioEngine::sharedEngine()->playEffect("Ding.wav",false);
+
             AudioControl::playSucessEffect();
         }
     }
@@ -339,7 +329,6 @@ void GameScene::generate(cocos2d::CCTime dt)
     frameCache->addSpriteFramesWithFile("lion.plist");
     
     CCSpriteBatchNode * batchNode = CCSpriteBatchNode::create("lion.png");
-    //CCSprite *sprite = CCSprite::createWithSpriteFrameName("lion1.png"); //FIX ME
     LionSprite *sprite = LionSprite::createWithSpriteFrameName("lion1.png"); //FIX ME
     int number = (int)(CCRANDOM_0_1()*4);
     sprite->setPosition(lionPositions[number]);
@@ -407,9 +396,6 @@ void GameScene::gameOver()
     CCLabelTTF *label = CCLabelTTF::create("Game Over", "Marker Felt", 38);
     label->setPosition(ccp(SCREEN_WIDTH/2, SCREEN_WIDTH/2));
     this->addChild(label);
-    
-    //SimpleAudioEngine::sharedEngine()->preloadEffect("lion_horn.wav");
-    //SimpleAudioEngine::sharedEngine()->playEffect("lion_horn.wav", false);
     
     AudioControl::playLionEffect();
 }
