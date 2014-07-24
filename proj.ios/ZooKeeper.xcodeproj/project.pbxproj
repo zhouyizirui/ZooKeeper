@@ -291,6 +291,7 @@
 		EFCDB922197BEA8D00A001F0 /* BackMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EFCDB921197BEA8D00A001F0 /* BackMusic.mp3 */; };
 		EFCDB924197BF2B700A001F0 /* HighScore.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = EFCDB923197BF2B700A001F0 /* HighScore.ccbi */; };
 		EFCDB927197BF2CB00A001F0 /* HighScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFCDB925197BF2CB00A001F0 /* HighScore.cpp */; };
+		EFDA08C719809C4F00333F77 /* AudioControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFDA08C519809C4F00333F77 /* AudioControl.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -863,6 +864,8 @@
 		EFCDB923197BF2B700A001F0 /* HighScore.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = HighScore.ccbi; sourceTree = "<group>"; };
 		EFCDB925197BF2CB00A001F0 /* HighScore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HighScore.cpp; sourceTree = "<group>"; };
 		EFCDB926197BF2CB00A001F0 /* HighScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScore.h; sourceTree = "<group>"; };
+		EFDA08C519809C4F00333F77 /* AudioControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioControl.cpp; sourceTree = "<group>"; };
+		EFDA08C619809C4F00333F77 /* AudioControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioControl.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1400,6 +1403,8 @@
 				EF4CCB82197D63CE0024894F /* LionSprite.h */,
 				EF96A0E9197F5021007DBCFB /* pre_declaration.h */,
 				EF247E3A197F988F00259390 /* GameConstant.h */,
+				EFDA08C519809C4F00333F77 /* AudioControl.cpp */,
+				EFDA08C619809C4F00333F77 /* AudioControl.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -2191,6 +2196,7 @@
 				375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */,
 				15A3D90D1682F7D5002FB0C5 /* b2Math.cpp in Sources */,
 				15A3D90E1682F7D5002FB0C5 /* b2Settings.cpp in Sources */,
+				EFDA08C719809C4F00333F77 /* AudioControl.cpp in Sources */,
 				15A3D90F1682F7D5002FB0C5 /* b2StackAllocator.cpp in Sources */,
 				15A3D9101682F7D5002FB0C5 /* b2Timer.cpp in Sources */,
 				15A3D9111682F7D5002FB0C5 /* b2Body.cpp in Sources */,

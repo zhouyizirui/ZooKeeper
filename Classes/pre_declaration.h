@@ -20,6 +20,7 @@
 #include "Background.h"
 #include "MainScene.h"
 #include "GameScene.h"
+#include "AudioControl.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;

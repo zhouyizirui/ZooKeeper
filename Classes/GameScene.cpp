@@ -84,7 +84,8 @@ SEL_CCControlHandler GameScene::onResolveCCBCCControlSelector(cocos2d::CCObject 
 void GameScene::onReturn(CCObject * pSender)
 {
     gameOver();
-    SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+    AudioControl::resumeBackground();
+    //SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
     CCDirector::sharedDirector()->popScene();
 }
 
@@ -144,7 +145,8 @@ void GameScene::menuBackCallback(CCObject *pSender)
 {
     
     CCDirector::sharedDirector()->popScene();
-    SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+    //SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+    AudioControl::resumeBackground();
 }
 
 bool GameScene::ccTouchBegan(CCTouch * touch, CCEvent * event)
@@ -189,8 +191,10 @@ void GameScene::changeSurface(void)
             CCMoveTo *plateMoveTo = CCMoveTo::create(Distance(startPoint, finalPosition)/MEET_BACKWARD_SPEED, finalPosition);
             plate->runAction(plateMoveTo);
             
-            SimpleAudioEngine::sharedEngine()->preloadEffect("throw.wav");
-            SimpleAudioEngine::sharedEngine()->playEffect("throw.wav", false);
+            //SimpleAudioEngine::sharedEngine()->preloadEffect("throw.wav");
+            //SimpleAudioEngine::sharedEngine()->playEffect("throw.wav", false);
+            AudioControl::playThrowEffect();
+            
         } break;
         case RIGHT_UP: {
             if(manIndex!=0) {
@@ -228,8 +232,10 @@ void GameScene::update(cocos2d::CCTime dt){
         {
             plateArray->removeObjectAtIndex(j);
             this->removeChild(plate);
-            SimpleAudioEngine::sharedEngine()->preloadEffect("glass.wav");
-            SimpleAudioEngine::sharedEngine()->playEffect("glass.wav",false);
+            
+            //SimpleAudioEngine::sharedEngine()->preloadEffect("glass.wav");
+            //SimpleAudioEngine::sharedEngine()->playEffect("glass.wav",false);
+            AudioControl::playPlateEffect();
             
             score-=50;
             refreshScore=true;
@@ -244,8 +250,10 @@ void GameScene::update(cocos2d::CCTime dt){
             {
                 frontingPlates->removeObjectAtIndex(m);
                 this->removeChild(newplate);
-                SimpleAudioEngine::sharedEngine()->preloadEffect("glass.wav");
-                SimpleAudioEngine::sharedEngine()->playEffect("glass.wav",false);
+                
+                //SimpleAudioEngine::sharedEngine()->preloadEffect("glass.wav");
+                //SimpleAudioEngine::sharedEngine()->playEffect("glass.wav",false);
+                AudioControl::playPlateEffect();
                 
                 score-=50;
                 refreshScore=true;
@@ -268,7 +276,7 @@ void GameScene::update(cocos2d::CCTime dt){
         {
             lion->stopAllActions();
             //LionSprite *backlion = (LionSprite*)backingLions->objectAtIndex(0);
-            backingLions->removeObjectAtIndex(0); //Remove the backing lions
+            if(backingLions->count()>0) backingLions->removeObjectAtIndex(0); //Remove the backing lions //FIX ME
             
             
             lionArray->removeObjectAtIndex(k);
@@ -277,8 +285,9 @@ void GameScene::update(cocos2d::CCTime dt){
             score+=100;
             refreshScore=true;
             
-            SimpleAudioEngine::sharedEngine()->preloadEffect("Ding.wav");
-            SimpleAudioEngine::sharedEngine()->playEffect("Ding.wav",false);
+            //SimpleAudioEngine::sharedEngine()->preloadEffect("Ding.wav");
+            //SimpleAudioEngine::sharedEngine()->playEffect("Ding.wav",false);
+            AudioControl::playSucessEffect();
         }
     }
     
@@ -396,6 +405,11 @@ void GameScene::gameOver()
     CCLabelTTF *label = CCLabelTTF::create("Game Over", "Marker Felt", 38);
     label->setPosition(ccp(SCREEN_WIDTH/2, SCREEN_WIDTH/2));
     this->addChild(label);
+    
+    //SimpleAudioEngine::sharedEngine()->preloadEffect("lion_horn.wav");
+    //SimpleAudioEngine::sharedEngine()->playEffect("lion_horn.wav", false);
+    
+    AudioControl::playLionEffect();
 }
 
 void GameScene::lionBackEnded()
@@ -404,7 +418,7 @@ void GameScene::lionBackEnded()
     LionSprite* lion = (LionSprite*)backingLions->objectAtIndex(0);
     lion->stopActionByTag(BACK_ACTION);
     lion->setOrientation(FRONT_ORIENTATION);
-    backingLions->removeObjectAtIndex(0);
+    if (backingLions->count() > 0) backingLions->removeObjectAtIndex(0);
 }
 
 void GameScene::changeScore()
@@ -417,7 +431,7 @@ void GameScene::changeScore()
         strcat(title, thescore);
         m_labelScore->setString(title);
         refreshScore=false;
-        if(score>0 && score%1000==0) increaseLevel=true;
+        if(score>0 && score%1000==0) increaseLevel=true; //FIX ME
     }
 }
 
