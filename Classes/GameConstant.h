@@ -17,13 +17,14 @@
 #define FRONT_ORIENTATION 200
 #define BACK_ORIENTATION -200
 #define LION_FORWARD_SPEED 50
-#define LION_BACKWARD_SPEED 100
-#define MEET_BACKWARD_SPEED 200
-#define PLATE_FORWARD_SPEED 150
+#define LION_BACKWARD_SPEED 150
+#define LION_BACKWARD_DIS 300
+#define MEET_BACKWARD_SPEED 250
+#define PLATE_FORWARD_SPEED 250
 #define PLATE_PLACE_X_OFFSET 50
 #define PLATE_PLACE_Y_OFFSET 20
 
-float LEVEL_SPEED[7] = {0.1f, 0.5f, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f};
+float LEVEL_SPEED[7] = {0.1f, 0.5f, 1.0f, 2.0f, 3.0f, 4.0f, 10.0f};
 CCPoint manPositions[4];
 CCPoint lionPositions[4];
 

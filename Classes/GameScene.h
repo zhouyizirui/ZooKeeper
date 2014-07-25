@@ -37,6 +37,7 @@ private:
     int score;
     int levelIndex;
     int lionNumber;
+    int distinguishNumber;
 public:
     GameScene();
     ~GameScene();
@@ -47,17 +48,20 @@ public:
     virtual cocos2d::extension::SEL_CCControlHandler onResolveCCBCCControlSelector(cocos2d::CCObject * pTarget, const char* pSelectorName);
     virtual bool onAssignCCBMemberVariable(cocos2d::CCObject *pTarget, const char *pMemberVariableName, cocos2d::CCNode *pNode);
     void onReturn(CCObject* pSender);
+    void removeBacking(LionSprite *sprite);
     virtual bool init();
     virtual bool ccTouchBegan(CCTouch* touch, CCEvent* event);
     virtual void visit(void);
     void gameOver();
     void update(cocos2d::CCTime dt);
     void generate(cocos2d::CCTime dt);
-    void changeSurface(void);
+    void touchRespond(void);
     void lionBackEnded();
     void menuBackCallback(CCObject *pSender);
     void changeScore();
+    void changeDistinguishedNumber();
     void boostLevel();
+    TouchType judgeTouchType(CCPoint point);
 };
 
 class GameSceneLoader : public cocos2d::extension::CCLayerLoader

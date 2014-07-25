@@ -10,8 +10,6 @@
 #include "pre_declaration.h"
 #include "GameConstant.h"
 
-
-TouchType judgeTouchType(CCPoint point);
 float Distance(CCPoint a, CCPoint b);
 CCScene * GameScene::scene()
 {
@@ -43,6 +41,7 @@ GameScene::GameScene()
 ,refreshScore(false)
 ,levelIndex(6)
 ,lionNumber(0)
+,distinguishNumber(0)
 ,score(0)
 ,manIndex(0)
 {
@@ -61,8 +60,6 @@ GameScene::~GameScene()
     CC_SAFE_RELEASE(plateArray);
     CC_SAFE_RELEASE(frontingPlates);
     CC_SAFE_RELEASE(backingLions);
-    
-    CCLOG("In the destroy function");
 }
 
 bool GameScene::onAssignCCBMemberVariable(cocos2d::CCObject *pTarget, const char *pMemberVariableName, cocos2d::CCNode *pNode)
@@ -86,7 +83,6 @@ void GameScene::onReturn(CCObject * pSender)
 {
     gameOver();
     AudioControl::resumeBackground();
-    //SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
     CCDirector::sharedDirector()->popScene();
 }
 
@@ -106,36 +102,38 @@ void setPositions()
 bool GameScene::init()
 {
     setPositions();
-    CCLOG("In the init function");
+    
+    //Create the man sprite
     manSprite = CCSprite::create("Feeder_The.png");
-    //manSprite->retain();
     manSprite->setPosition(manPositions[0]);
-    manSprite->setScale(0.18);
+    manSprite->setScale(0.15);
     this->addChild(manSprite, 3);
     
+    //Create the close menu sprite
     CCMenuItemImage *pCloseItem = CCMenuItemImage::create("b1.png",
                                                           "b2.png",
                                                           this,
                                                           menu_selector(GameScene::menuBackCallback));
-    
     pCloseItem->setPosition(ccp(720, 50));
     CCMenu * pMenu = CCMenu::create(pCloseItem, NULL);
     pMenu->setPosition(CCPointZero);
     this->addChild(pMenu, 1);
     
-    
+    //Create the arrays
     meetArray = CCArray::create();
     plateArray = CCArray::create();
     lionArray = CCArray::create();
     backingLions = CCArray::create();
     frontingPlates = CCArray::create();
     
+    //Retain them
     meetArray->retain();
     plateArray->retain();
     lionArray->retain();
     backingLions->retain();
     frontingPlates->retain();
     
+    //Set the scheduler, game started
     this->schedule(schedule_selector(GameScene::update));
     this->schedule(schedule_selector(GameScene::generate), LEVEL_SPEED[levelIndex]);
     
@@ -144,7 +142,6 @@ bool GameScene::init()
 
 void GameScene::menuBackCallback(CCObject *pSender)
 {
-    
     CCDirector::sharedDirector()->popScene();
     AudioControl::resumeBackground();
 }
@@ -153,45 +150,56 @@ bool GameScene::ccTouchBegan(CCTouch * touch, CCEvent * event)
 {
     TouchType touchType = judgeTouchType(touch->getLocation());
     currentType = touchType;
-    changeSurface();
+    touchRespond();
     return true;
 }
 
-TouchType judgeTouchType(CCPoint point)
+TouchType GameScene::judgeTouchType(CCPoint point)
 {
-    if(point.x<SCREEN_WIDTH*2/3) return LEFT;
-    else{
-        if(point.y>SCREEN_HEIGHT/2) return RIGHT_UP;
-        else return RIGHT_DOWN;
+    if(stopGame) return NONE;
+    else
+    {
+        if(point.x<SCREEN_WIDTH*2/3) return LEFT;
+        else{
+            if(point.y>SCREEN_HEIGHT/2) return RIGHT_UP;
+            else return RIGHT_DOWN;
+        }
     }
 }
 
-void GameScene::changeSurface(void)
+void GameScene::touchRespond(void)
 {
     switch(currentType){
         case NONE: break;
         case LEFT: {
-            CCSprite *plate = CCSprite::create("plate.png");
-            plate->setScale(0.08);
+            //Start point is a little biased
             CCPoint startPoint = ccp((manSprite->getPosition()).x-PLATE_PLACE_X_OFFSET, (manSprite->getPosition()).y-PLATE_PLACE_Y_OFFSET);
+            
+            //Create the plate
+            CCSprite *plate = CCSprite::create("plate.png");
+            plate->setScale(0.06);
             plate->setPosition(startPoint);
             this->addChild(plate, 3);
+            
+            //Create the meet
             CCSprite *meet = CCSprite::create("meet.png");
-            meet->setScale(0.14);
+            meet->setScale(0.10);
             meet->setPosition(startPoint);
             this->addChild(meet, 4);
             
+            //Add them to the array
             meetArray->addObject(meet);
             plateArray->addObject(plate);
             
+            //Run the action to move the meet and plate
             CCPoint finalPosition = ccp(0, startPoint.y);
             CCMoveTo *meetMoveTo = CCMoveTo::create(Distance(startPoint, finalPosition)/MEET_BACKWARD_SPEED, finalPosition);
             meet->runAction(meetMoveTo);
             CCMoveTo *plateMoveTo = CCMoveTo::create(Distance(startPoint, finalPosition)/MEET_BACKWARD_SPEED, finalPosition);
             plate->runAction(plateMoveTo);
-
-            AudioControl::playThrowEffect();
             
+            //Play the effect
+            AudioControl::playThrowEffect();
         } break;
         case RIGHT_UP: {
             if(manIndex!=0) {
@@ -218,9 +226,9 @@ void GameScene::update(cocos2d::CCTime dt){
     {
         CCSprite *meet = (CCSprite*)meetArray->objectAtIndex(i);
         if(meet->getPosition().x<0.1) {
+            //Remove it
             meetArray->removeObjectAtIndex(i);
             this->removeChild(meet);
-            
             i--; //IMPORTANT!!!!
         }
     }
@@ -229,13 +237,18 @@ void GameScene::update(cocos2d::CCTime dt){
         CCSprite *plate = (CCSprite*)plateArray->objectAtIndex(j);
         if(plate->getPosition().x<0.1)
         {
+            //Remove it
             plateArray->removeObjectAtIndex(j);
             this->removeChild(plate);
             j--; //IMPORTANT!!!
+            
+            //Play effect
             AudioControl::playPlateEffect();
             
+            //Change Score
             score-=50;
             refreshScore=true;
+            changeScore();
         }
     }
     for(int m = 0; m<frontingPlates->count(); m++)
@@ -245,27 +258,29 @@ void GameScene::update(cocos2d::CCTime dt){
         {
             if(!manSprite->boundingBox().intersectsRect(newplate->boundingBox()))
             {
+                //Remove it
                 frontingPlates->removeObjectAtIndex(m);
-                
+                this->removeChild(newplate);
                 m--;//IMPORTANT!!!
                 
-                this->removeChild(newplate);
-                
+                //Play effect
                 AudioControl::playPlateEffect();
                 
+                //Change score
                 score-=50;
                 refreshScore=true;
+                changeScore();
             }
             else
             {
+                //Remove it
                 frontingPlates->removeObjectAtIndex(m);
-                
-                m--;//IMPORTANT!!!
-                
                 this->removeChild(newplate);
+                m--;//IMPORTANT!!!
             }
         }
     }
+    
     for(int k=0; k<lionArray->count(); k++)
     {
         LionSprite *lion = (LionSprite*)lionArray->objectAtIndex(k); //FIX ME
@@ -275,54 +290,57 @@ void GameScene::update(cocos2d::CCTime dt){
         }
         else if(lion->getPosition().x<=0.1)
         {
-            lion->stopAllActions();
-            //LionSprite *backlion = (LionSprite*)backingLions->objectAtIndex(0);
-            if(backingLions->count()>0) backingLions->removeObjectAtIndex(0); //Remove the backing lions //FIX ME
+            removeBacking(lion);
             
-            
+            //Remove it from lion array.
             lionArray->removeObjectAtIndex(k);
-            
+            this->removeChild(lion->getParent());
             k--; //IMPORTANT!!!
             
-            this->removeChild(lion->getParent());
-            
+            //Change the score.
             score+=100;
             refreshScore=true;
-
+            changeScore();
+            distinguishNumber++;
+            changeDistinguishedNumber();
+            boostLevel();
+            
+            //Play the music.
             AudioControl::playSucessEffect();
         }
     }
     
     for(int i=0; i<meetArray->count(); i++)
     {
+        
         CCSprite * meet = (CCSprite*)meetArray->objectAtIndex(i);
         for(int j=0; j<lionArray->count(); j++)
         {
             LionSprite *lion = (LionSprite*)lionArray->objectAtIndex(j); //FIX ME
+            
             if (lion->boundingBox().intersectsRect(meet->boundingBox()) && lion->getOrientation()==FRONT_ORIENTATION) { //FIX ME
                 
+                //Create the new plate and move it.
                 CCSprite *newplate = CCSprite::create("plate.png");
-                newplate->setScale(0.08);
+                newplate->setScale(0.05);
                 newplate->setPosition(meet->getPosition());
                 CCMoveTo *moveTo = CCMoveTo::create(Distance(meet->getPosition(), ccp(SCREEN_WIDTH*3/4+2, newplate->getPosition().y))/PLATE_FORWARD_SPEED, ccp(SCREEN_WIDTH*3/4+2, newplate->getPosition().y));
                 newplate->runAction(moveTo);
                 frontingPlates->addObject(newplate);
                 this->addChild(newplate);
                 
+                //Remove the meet and the plate.
                 meetArray->removeObjectAtIndex(i);
                 this->removeChild(meet);
                 CCSprite *plate = (CCSprite*)plateArray->objectAtIndex(i);
+                this->removeChild(plate);
                 plateArray->removeObjectAtIndex(i);
                 
                 i--; //IMPORTANT!!!!!!!
                 
-                this->removeChild(plate);
-                
                 lion->stopActionByTag(FRONT_ACTION);
-                
-                CCMoveTo *moveBack = CCMoveTo::create(2.0f, ccp(lion->getPosition().x-200, lion->getPosition().y));
-                moveBack->setTag(BACK_ACTION);
-                CCMoveTo *moveFront = CCMoveTo::create(Distance(ccp(lion->getPosition().x-200, lion->getPosition().y), ccp(SCREEN_WIDTH*3/4, lion->getPosition().y))/LION_FORWARD_SPEED, ccp(SCREEN_WIDTH*3/4, lion->getPosition().y));
+                CCMoveTo *moveBack = CCMoveTo::create(Distance(lion->getPosition(), ccp(lion->getPosition().x-LION_BACKWARD_DIS, lion->getPosition().y))/LION_BACKWARD_SPEED, ccp(lion->getPosition().x-LION_BACKWARD_DIS, lion->getPosition().y));
+                CCMoveTo *moveFront = CCMoveTo::create(Distance(ccp(lion->getPosition().x-LION_BACKWARD_DIS, lion->getPosition().y), ccp(SCREEN_WIDTH*3/4, lion->getPosition().y))/LION_FORWARD_SPEED, ccp(SCREEN_WIDTH*3/4, lion->getPosition().y));
                 CCSequence * sequence = CCSequence::create(moveBack, CCCallFunc::create(this, callfunc_selector(GameScene::lionBackEnded)),moveFront, NULL);
                 sequence->setTag(FRONT_ACTION);
                 lion->setOrientation(BACK_ORIENTATION);
@@ -332,8 +350,6 @@ void GameScene::update(cocos2d::CCTime dt){
             }
         }
     }
-    changeScore();
-    boostLevel();
 }
 
 void GameScene::generate(cocos2d::CCTime dt)
@@ -347,11 +363,11 @@ void GameScene::generate(cocos2d::CCTime dt)
     int number = (int)(CCRANDOM_0_1()*4);
     sprite->setPosition(lionPositions[number]);
     sprite->setOrientation(FRONT_ORIENTATION);
+    sprite->setTag(lionNumber);
+    sprite->setScale(0.9);
     lionArray->addObject(sprite);
     batchNode->addChild(sprite);
     lionNumber++;
-    
-    CCLOG("The number of generated lions %d", lionArray->count());
         
     this->addChild(batchNode, 1);
     batchNode->setPosition(CCPointZero);
@@ -377,7 +393,6 @@ void GameScene::generate(cocos2d::CCTime dt)
 
 void GameScene::gameOver()
 {
-    CCLOG("We are in the game over");
     for(int i=0; i<meetArray->count(); i++)
     {
         CCSprite *meet = (CCSprite*)meetArray->objectAtIndex(0);
@@ -399,18 +414,10 @@ void GameScene::gameOver()
         this->removeChild(newplate);
         i--;
     }
-    CCLOG("The number of lionArray count %d", lionArray->count());
     for(int i=0; i<lionArray->count(); i++)
     {
         LionSprite *lion = (LionSprite*)lionArray->objectAtIndex(0); //FIX ME
         lionArray->removeObjectAtIndex(0);
-        this->removeChild(lion->getParent());
-        i--;
-    }
-    for(int i=0; i<backingLions->count(); i++)
-    {
-        LionSprite *lion = (LionSprite*)backingLions->objectAtIndex(0); //FIX ME
-        backingLions->removeObjectAtIndex(0);
         this->removeChild(lion->getParent());
         i--;
     }
@@ -419,7 +426,6 @@ void GameScene::gameOver()
     
     this->unschedule(schedule_selector(GameScene::update));
     this->unschedule(schedule_selector(GameScene::generate));
-    
     
     CCLabelTTF *label = CCLabelTTF::create("Game Over", "Marker Felt", 38);
     label->setPosition(ccp(SCREEN_WIDTH/2, SCREEN_WIDTH/2));
@@ -430,11 +436,9 @@ void GameScene::gameOver()
 
 void GameScene::lionBackEnded()
 {
-    CCLOG("In the back ended");
     LionSprite* lion = (LionSprite*)backingLions->objectAtIndex(0);
-    lion->stopActionByTag(BACK_ACTION);
     lion->setOrientation(FRONT_ORIENTATION);
-    if (backingLions->count() > 0) backingLions->removeObjectAtIndex(0);
+    backingLions->removeObjectAtIndex(0);
 }
 
 void GameScene::changeScore()
@@ -447,8 +451,12 @@ void GameScene::changeScore()
         strcat(title, thescore);
         m_labelScore->setString(title);
         refreshScore=false;
-        if(lionNumber>0 && lionNumber%10==0) increaseLevel=true; //FIX ME
     }
+}
+
+void GameScene::changeDistinguishedNumber()
+{
+    if(distinguishNumber>0 && distinguishNumber%10==0) increaseLevel=true; //FIX ME
 }
 
 void GameScene::boostLevel()
@@ -456,7 +464,6 @@ void GameScene::boostLevel()
     if(increaseLevel)
     {
         levelIndex--;
-        CCLOG("The game level is %d", levelIndex);
         if(levelIndex<0) levelIndex=0;
         this->unschedule(schedule_selector(GameScene::generate));
         this->schedule(schedule_selector(GameScene::generate), LEVEL_SPEED[levelIndex]);
@@ -467,5 +474,17 @@ void GameScene::boostLevel()
 float Distance(CCPoint a, CCPoint b)
 {
     return sqrtf(powf(a.x-b.x, 2)+powf(a.y-b.y, 2));
+}
+
+void GameScene::removeBacking(LionSprite *sprite)
+{
+    for(int i=0; i<backingLions->count(); i++)
+    {
+        if(sprite->getTag()==((LionSprite*)(backingLions->objectAtIndex(i)))->getTag())
+        {
+            backingLions->removeObjectAtIndex(i);
+            i--;
+        }
+    }
 }
 
