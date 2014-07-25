@@ -21,6 +21,8 @@
 #include "MainScene.h"
 #include "GameScene.h"
 #include "AudioControl.h"
+#include "FileHelper.h"
+#include "tinyxml.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;

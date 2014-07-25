@@ -273,6 +273,11 @@
 		EF71617D196BC4FC00D6DBF0 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = EF71617C196BC4FC00D6DBF0 /* fire.png */; };
 		EF96A0E7197F4D02007DBCFB /* b1.png in Resources */ = {isa = PBXBuildFile; fileRef = EF96A0E5197F4D02007DBCFB /* b1.png */; };
 		EF96A0E8197F4D02007DBCFB /* b2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF96A0E6197F4D02007DBCFB /* b2.png */; };
+		EFBB60F11982A03500BFD270 /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFBB60EB1982A03500BFD270 /* tinystr.cpp */; };
+		EFBB60F21982A03500BFD270 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFBB60ED1982A03500BFD270 /* tinyxml.cpp */; };
+		EFBB60F31982A03500BFD270 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFBB60EF1982A03500BFD270 /* tinyxmlerror.cpp */; };
+		EFBB60F41982A03500BFD270 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFBB60F01982A03500BFD270 /* tinyxmlparser.cpp */; };
+		EFBB60F71982A07D00BFD270 /* FileHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFBB60F51982A07D00BFD270 /* FileHelper.cpp */; };
 		EFCDB8ED197B74D700A001F0 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFCDB8EB197B74D700A001F0 /* MainScene.cpp */; };
 		EFCDB900197B9EFF00A001F0 /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFCDB8FE197B9EFF00A001F0 /* Background.cpp */; };
 		EFCDB90C197BA79300A001F0 /* Background.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = EFCDB903197BA79300A001F0 /* Background.ccbi */; };
@@ -841,6 +846,15 @@
 		EF96A0E5197F4D02007DBCFB /* b1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b1.png; sourceTree = "<group>"; };
 		EF96A0E6197F4D02007DBCFB /* b2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b2.png; sourceTree = "<group>"; };
 		EF96A0E9197F5021007DBCFB /* pre_declaration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pre_declaration.h; sourceTree = "<group>"; };
+		EFBB60EA1982A03500BFD270 /* AppMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacros.h; sourceTree = "<group>"; };
+		EFBB60EB1982A03500BFD270 /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
+		EFBB60EC1982A03500BFD270 /* tinystr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinystr.h; sourceTree = "<group>"; };
+		EFBB60ED1982A03500BFD270 /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
+		EFBB60EE1982A03500BFD270 /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
+		EFBB60EF1982A03500BFD270 /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
+		EFBB60F01982A03500BFD270 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
+		EFBB60F51982A07D00BFD270 /* FileHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelper.cpp; sourceTree = "<group>"; };
+		EFBB60F61982A07D00BFD270 /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
 		EFCDB8EB197B74D700A001F0 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainScene.cpp; sourceTree = "<group>"; };
 		EFCDB8EC197B74D700A001F0 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
 		EFCDB8FE197B9EFF00A001F0 /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
@@ -1385,6 +1399,13 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EFBB60EA1982A03500BFD270 /* AppMacros.h */,
+				EFBB60EB1982A03500BFD270 /* tinystr.cpp */,
+				EFBB60EC1982A03500BFD270 /* tinystr.h */,
+				EFBB60ED1982A03500BFD270 /* tinyxml.cpp */,
+				EFBB60EE1982A03500BFD270 /* tinyxml.h */,
+				EFBB60EF1982A03500BFD270 /* tinyxmlerror.cpp */,
+				EFBB60F01982A03500BFD270 /* tinyxmlparser.cpp */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				EFCDB8EB197B74D700A001F0 /* MainScene.cpp */,
@@ -1405,6 +1426,8 @@
 				EF247E3A197F988F00259390 /* GameConstant.h */,
 				EFDA08C519809C4F00333F77 /* AudioControl.cpp */,
 				EFDA08C619809C4F00333F77 /* AudioControl.h */,
+				EFBB60F51982A07D00BFD270 /* FileHelper.cpp */,
+				EFBB60F61982A07D00BFD270 /* FileHelper.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -2198,6 +2221,7 @@
 				15A3D90E1682F7D5002FB0C5 /* b2Settings.cpp in Sources */,
 				EFDA08C719809C4F00333F77 /* AudioControl.cpp in Sources */,
 				15A3D90F1682F7D5002FB0C5 /* b2StackAllocator.cpp in Sources */,
+				EFBB60F71982A07D00BFD270 /* FileHelper.cpp in Sources */,
 				15A3D9101682F7D5002FB0C5 /* b2Timer.cpp in Sources */,
 				15A3D9111682F7D5002FB0C5 /* b2Body.cpp in Sources */,
 				15A3D9121682F7D5002FB0C5 /* b2ContactManager.cpp in Sources */,
@@ -2257,6 +2281,7 @@
 				15A3D9AA1682F7F9002FB0C5 /* cpShape.c in Sources */,
 				15A3D9AB1682F7F9002FB0C5 /* cpSpace.c in Sources */,
 				15A3D9AC1682F7F9002FB0C5 /* cpSpaceComponent.c in Sources */,
+				EFBB60F21982A03500BFD270 /* tinyxml.cpp in Sources */,
 				15A3D9AD1682F7F9002FB0C5 /* cpSpaceHash.c in Sources */,
 				15A3D9AE1682F7F9002FB0C5 /* cpSpaceQuery.c in Sources */,
 				15A3D9AF1682F7F9002FB0C5 /* cpSpaceStep.c in Sources */,
@@ -2323,6 +2348,7 @@
 				15A3DAEB1682F8A6002FB0C5 /* CDAudioManager.m in Sources */,
 				15A3DAEC1682F8A6002FB0C5 /* CDOpenALSupport.m in Sources */,
 				15A3DAED1682F8A6002FB0C5 /* CocosDenshion.m in Sources */,
+				EFBB60F41982A03500BFD270 /* tinyxmlparser.cpp in Sources */,
 				EFCDB927197BF2CB00A001F0 /* HighScore.cpp in Sources */,
 				15A3DAEE1682F8A6002FB0C5 /* SimpleAudioEngine.mm in Sources */,
 				15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */,
@@ -2345,6 +2371,7 @@
 				1A8F3B76175E05DA00049216 /* BoneData.cpp in Sources */,
 				1A8F3B77175E05DA00049216 /* CCSkeleton.cpp in Sources */,
 				1A8F3B78175E05DA00049216 /* CCSkeletonAnimation.cpp in Sources */,
+				EFBB60F11982A03500BFD270 /* tinystr.cpp in Sources */,
 				375BD5121868454E0024609E /* CCActionNode.cpp in Sources */,
 				1A8F3B79175E05DA00049216 /* extension.cpp in Sources */,
 				1A8F3B7A175E05DA00049216 /* Json.cpp in Sources */,
@@ -2390,6 +2417,7 @@
 				379BB9B017F03F3700829B88 /* CCComRender.cpp in Sources */,
 				379BB9B117F03F3700829B88 /* CCInputDelegate.cpp in Sources */,
 				379BB9B317F03F3700829B88 /* UIWidget.cpp in Sources */,
+				EFBB60F31982A03500BFD270 /* tinyxmlerror.cpp in Sources */,
 				379BB9B417F03F3700829B88 /* UILayout.cpp in Sources */,
 				379BB9B617F03F3700829B88 /* UILayoutParameter.cpp in Sources */,
 				EF4CCB6E197CF01A0024894F /* GameScene.cpp in Sources */,
