@@ -312,7 +312,6 @@ void GameScene::update(cocos2d::CCTime dt){
     
     for(int i=0; i<meetArray->count(); i++)
     {
-        
         CCSprite * meet = (CCSprite*)meetArray->objectAtIndex(i);
         for(int j=0; j<lionArray->count(); j++)
         {
