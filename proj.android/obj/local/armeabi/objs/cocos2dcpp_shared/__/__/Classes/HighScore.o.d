@@ -468,7 +468,9 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/HighScore.o: \
  jni/../../Classes/LionSprite.h jni/../../Classes/HighScore.h \
  jni/../../Classes/QuitSprite.h jni/../../Classes/AboutScene.h \
  jni/../../Classes/Background.h jni/../../Classes/MainScene.h \
- jni/../../Classes/GameScene.h jni/../../Classes/AudioControl.h
+ jni/../../Classes/GameScene.h jni/../../Classes/AudioControl.h \
+ jni/../../Classes/FileHelper.h jni/../../Classes/tinyxml.h \
+ jni/../../Classes/tinystr.h
 
 jni/../../Classes/pre_declaration.h:
 
@@ -1417,3 +1419,9 @@ jni/../../Classes/MainScene.h:
 jni/../../Classes/GameScene.h:
 
 jni/../../Classes/AudioControl.h:
+
+jni/../../Classes/FileHelper.h:
+
+jni/../../Classes/tinyxml.h:
+
+jni/../../Classes/tinystr.h:

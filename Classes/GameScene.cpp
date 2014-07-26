@@ -431,6 +431,10 @@ void GameScene::gameOver()
     this->addChild(label);
     
     AudioControl::playLionEffect();
+    
+    FileHelper *file = new FileHelper();
+    file->writeTinyXML();
+    file->readTinyXML();
 }
 
 void GameScene::lionBackEnded()

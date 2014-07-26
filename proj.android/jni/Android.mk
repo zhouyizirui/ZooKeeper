@@ -15,7 +15,12 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/HighScore.cpp \
                    ../../Classes/GameScene.cpp \
                    ../../Classes/LionSprite.cpp \
-                   ../../Classes/AudioControl.cpp
+                   ../../Classes/AudioControl.cpp \
+                   ../../Classes/FileHelper.cpp \
+                   ../../Classes/tinystr.cpp \
+                   ../../Classes/tinyxml.cpp \
+                   ../../Classes/tinyxmlerror.cpp \
+                   ../../Classes/tinyxmlparser.cpp \
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 

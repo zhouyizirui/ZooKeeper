@@ -42,7 +42,7 @@ void FileHelper::writeTinyXML()
     websiteElenment->LinkEndChild(websitetext);
     
     myTinyXMLDoc->SaveFile(CCFileUtils::sharedFileUtils()->fullPathForFilename("testTiny.xml").c_str());//保存xml
-    
+    CCLOG("%s", CCFileUtils::sharedFileUtils()->fullPathForFilename("testTiny.xml").c_str());
     delete myTinyXMLDoc;
 }
 
