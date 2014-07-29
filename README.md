@@ -1,6 +1,6 @@
 ## Introduction
 
-This is a repository of a little cross platform game named 《Zoo Keeper》, this game is designed with Cocos2dx. Player pretend to be a zoo keeper, you should feed the animals, collect the plates and earn corresponding bonus.
+This is a repository of a little cross platform game named 《Zoo Keeper》, this game is designed with Cocos2dx. In this game, player act as a zoo keeper. In order to get paid, you should feed the animals. Or the animals will eat you! Don't forget to collect the plates.
 
 ## For ios users
 
@@ -8,7 +8,7 @@ Open proj.ios, double click the .xcodeproj, then run it.
 
 ## For Android users
 
-Open proj.android, follow the steps in README step by step, then you will get it. 
+Open proj.android, follow the steps in README step by step, then you will get it work. 
 
 ## The Game
 
