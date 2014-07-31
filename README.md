@@ -35,7 +35,7 @@ Send a plate of meet to feed her !
 
 #### Collect the plate
 ![Plate](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/plate.png)
-Remember to collect the plate !
+Look, the lion eat the meet the send back the plate. Now the lion will move back a constant distance, remember to collect the plate!
 
 #### Lion eat you
 ![Eat](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/dead.png)
