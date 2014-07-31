@@ -21,12 +21,13 @@ private:
 public:
     AboutScene();
     ~AboutScene();
+    virtual bool init();
     static cocos2d::CCScene* scene();
     CCB_STATIC_NEW_AUTORELEASE_OBJECT_WITH_INIT_METHOD(AboutScene, create);
     //CREATE_FUNC(Background);
     virtual cocos2d::SEL_MenuHandler onResolveCCBCCMenuItemSelector(cocos2d::CCObject * pTarget, const char* pSelectorName);
     virtual cocos2d::extension::SEL_CCControlHandler onResolveCCBCCControlSelector(cocos2d::CCObject * pTarget, const char* pSelectorName);
-    void onReturn(CCObject* pSender);
+    void menuBackCallback(CCObject *pSender);
 };
 
 class AboutSceneLoader : public cocos2d::extension::CCLayerLoader

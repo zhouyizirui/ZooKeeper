@@ -114,7 +114,8 @@ bool GameScene::init()
                                                           "b2.png",
                                                           this,
                                                           menu_selector(GameScene::menuBackCallback));
-    pCloseItem->setPosition(ccp(720, 50));
+    pCloseItem->setPosition(ccp(750, 50));
+    pCloseItem->setScale(0.8);
     CCMenu * pMenu = CCMenu::create(pCloseItem, NULL);
     pMenu->setPosition(CCPointZero);
     this->addChild(pMenu, 1);
@@ -367,7 +368,7 @@ void GameScene::generate(cocos2d::CCTime dt)
     lionArray->addObject(sprite);
     batchNode->addChild(sprite);
     lionNumber++;
-        
+
     this->addChild(batchNode, 1);
     batchNode->setPosition(CCPointZero);
     
@@ -433,8 +434,8 @@ void GameScene::gameOver()
     AudioControl::playLionEffect();
     
     FileHelper *file = new FileHelper();
-    file->writeTinyXML();
-    file->readTinyXML();
+    file->writeScores(score);
+    delete file;
 }
 
 void GameScene::lionBackEnded()

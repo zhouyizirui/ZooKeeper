@@ -271,6 +271,7 @@
 		EF4CCB80197D32DE0024894F /* lion.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4CCB7E197D32DE0024894F /* lion.png */; };
 		EF4CCB83197D63CE0024894F /* LionSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EF4CCB81197D63CE0024894F /* LionSprite.cpp */; };
 		EF71617D196BC4FC00D6DBF0 /* fire.png in Resources */ = {isa = PBXBuildFile; fileRef = EF71617C196BC4FC00D6DBF0 /* fire.png */; };
+		EF81326B1987C2A7003AB338 /* HighScores.xml in Resources */ = {isa = PBXBuildFile; fileRef = EF81326A1987C2A7003AB338 /* HighScores.xml */; };
 		EF96A0E7197F4D02007DBCFB /* b1.png in Resources */ = {isa = PBXBuildFile; fileRef = EF96A0E5197F4D02007DBCFB /* b1.png */; };
 		EF96A0E8197F4D02007DBCFB /* b2.png in Resources */ = {isa = PBXBuildFile; fileRef = EF96A0E6197F4D02007DBCFB /* b2.png */; };
 		EFBB60F11982A03500BFD270 /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EFBB60EB1982A03500BFD270 /* tinystr.cpp */; };
@@ -843,6 +844,7 @@
 		EF4CCB81197D63CE0024894F /* LionSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LionSprite.cpp; sourceTree = "<group>"; };
 		EF4CCB82197D63CE0024894F /* LionSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LionSprite.h; sourceTree = "<group>"; };
 		EF71617C196BC4FC00D6DBF0 /* fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fire.png; sourceTree = "<group>"; };
+		EF81326A1987C2A7003AB338 /* HighScores.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HighScores.xml; sourceTree = "<group>"; };
 		EF96A0E5197F4D02007DBCFB /* b1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b1.png; sourceTree = "<group>"; };
 		EF96A0E6197F4D02007DBCFB /* b2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = b2.png; sourceTree = "<group>"; };
 		EF96A0E9197F5021007DBCFB /* pre_declaration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pre_declaration.h; sourceTree = "<group>"; };
@@ -2044,6 +2046,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EF81326A1987C2A7003AB338 /* HighScores.xml */,
 				EF96A0E5197F4D02007DBCFB /* b1.png */,
 				EF96A0E6197F4D02007DBCFB /* b2.png */,
 				EF4CCB7D197D32DE0024894F /* lion.plist */,
@@ -2189,6 +2192,7 @@
 				EFCDB922197BEA8D00A001F0 /* BackMusic.mp3 in Resources */,
 				EFCDB90F197BA79300A001F0 /* fonts in Resources */,
 				EFCDB916197BCC1F00A001F0 /* AboutScene.ccbi in Resources */,
+				EF81326B1987C2A7003AB338 /* HighScores.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

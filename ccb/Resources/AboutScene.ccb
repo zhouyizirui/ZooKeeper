@@ -157,9 +157,9 @@
 						<string>Color3</string>
 						<key>value</key>
 						<array>
-							<integer>170</integer>
-							<integer>121</integer>
-							<integer>65</integer>
+							<integer>0</integer>
+							<integer>122</integer>
+							<integer>146</integer>
 						</array>
 					</dict>
 					<dict>
@@ -261,7 +261,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Courier</string>
+						<string>MarkerFelt-Thin</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -335,7 +335,7 @@
 						<key>value</key>
 						<array>
 							<real>50</real>
-							<real>60</real>
+							<real>55</real>
 							<integer>4</integer>
 						</array>
 					</dict>
@@ -357,8 +357,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>1.1154181957244873</real>
+							<real>1.0431773662567139</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -377,129 +377,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Courier</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>fontSize</string>
-						<key>type</key>
-						<string>FloatScale</string>
-						<key>value</key>
-						<array>
-							<real>13</real>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>dimensions</string>
-						<key>type</key>
-						<string>Size</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>horizontalAlignment</string>
-						<key>type</key>
-						<string>IntegerLabeled</string>
-						<key>value</key>
-						<integer>0</integer>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>verticalAlignment</string>
-						<key>type</key>
-						<string>IntegerLabeled</string>
-						<key>value</key>
-						<integer>0</integer>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>string</string>
-						<key>type</key>
-						<string>Text</string>
-						<key>value</key>
-						<string>1. Tap the left to send a plate of food
-
-2. Tap the right to move the feeder
-
-3. Send the corresponding food to animals
-
-4. Good luck</string>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>baseClass</key>
-				<string>CCLabelTTF</string>
-				<key>children</key>
-				<array/>
-				<key>customClass</key>
-				<string></string>
-				<key>displayName</key>
-				<string>CCLabelTTF</string>
-				<key>memberVarAssignmentName</key>
-				<string></string>
-				<key>memberVarAssignmentType</key>
-				<integer>0</integer>
-				<key>properties</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>position</string>
-						<key>type</key>
-						<string>Position</string>
-						<key>value</key>
-						<array>
-							<real>50</real>
-							<real>20</real>
-							<integer>4</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>anchorPoint</string>
-						<key>type</key>
-						<string>Point</string>
-						<key>value</key>
-						<array>
-							<real>0.5</real>
-							<real>0.5</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>scale</string>
-						<key>type</key>
-						<string>ScaleLock</string>
-						<key>value</key>
-						<array>
-							<real>1</real>
-							<real>1</real>
-							<false/>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>ignoreAnchorPointForPosition</string>
-						<key>type</key>
-						<string>Check</string>
-						<key>value</key>
-						<false/>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>fontName</string>
-						<key>type</key>
-						<string>FontTTF</string>
-						<key>value</key>
-						<string>Courier</string>
+						<string>MarkerFelt-Thin</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -546,20 +424,26 @@
 						<key>type</key>
 						<string>Text</string>
 						<key>value</key>
-						<string>All Copyright Reserved 2014
-Developed by zhouyizirui</string>
+						<string>1. Tap the left to send a plate of food
+
+2. Tap the right to move the feeder
+
+3. Send the corresponding food to animals
+
+4. Good luck
+</string>
 					</dict>
 				</array>
 			</dict>
 			<dict>
 				<key>baseClass</key>
-				<string>CCControlButton</string>
+				<string>CCLabelTTF</string>
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>CCControlButton</string>
+				<string>CCLabelTTF</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -573,8 +457,8 @@ Developed by zhouyizirui</string>
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>10</real>
-							<real>8</real>
+							<real>49.875</real>
+							<real>19.583332061767578</real>
 							<integer>4</integer>
 						</array>
 					</dict>
@@ -612,154 +496,73 @@ Developed by zhouyizirui</string>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>ccControl</string>
-						<key>type</key>
-						<string>BlockCCControl</string>
-						<key>value</key>
-						<array>
-							<string>onReturn</string>
-							<integer>1</integer>
-							<integer>32</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>enabled</string>
-						<key>type</key>
-						<string>Check</string>
-						<key>value</key>
-						<true/>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>title|1</string>
-						<key>type</key>
-						<string>String</string>
-						<key>value</key>
-						<string>Back</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>titleTTF|1</string>
+						<string>fontName</string>
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>MarkerFelt-Thin</string>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>titleTTFSize|1</string>
+						<string>fontSize</string>
 						<key>type</key>
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>18</real>
+							<real>20</real>
 							<integer>0</integer>
 						</array>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>labelAnchorPoint</string>
+						<string>color</string>
 						<key>type</key>
-						<string>Point</string>
+						<string>Color3</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
-							<real>0.5</real>
+							<integer>255</integer>
+							<integer>38</integer>
+							<integer>0</integer>
 						</array>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>preferedSize</string>
+						<string>dimensions</string>
 						<key>type</key>
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>120</real>
-							<real>40</real>
+							<real>0.0</real>
+							<real>0.0</real>
 							<integer>0</integer>
 						</array>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>zoomOnTouchDown</string>
+						<string>horizontalAlignment</string>
 						<key>type</key>
-						<string>Check</string>
+						<string>IntegerLabeled</string>
 						<key>value</key>
-						<true/>
+						<integer>0</integer>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>backgroundSpriteFrame|1</string>
+						<string>verticalAlignment</string>
 						<key>type</key>
-						<string>SpriteFrame</string>
+						<string>IntegerLabeled</string>
 						<key>value</key>
-						<array>
-							<string>ccbResources/ccbDefaultImages.plist</string>
-							<string>ccbButton.png</string>
-						</array>
+						<integer>0</integer>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>titleColor|1</string>
+						<string>string</string>
 						<key>type</key>
-						<string>Color3</string>
+						<string>Text</string>
 						<key>value</key>
-						<array>
-							<integer>254</integer>
-							<integer>255</integer>
-							<integer>255</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>backgroundSpriteFrame|2</string>
-						<key>type</key>
-						<string>SpriteFrame</string>
-						<key>value</key>
-						<array>
-							<string>ccbResources/ccbDefaultImages.plist</string>
-							<string>ccbButtonHilite.png</string>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>titleColor|2</string>
-						<key>type</key>
-						<string>Color3</string>
-						<key>value</key>
-						<array>
-							<integer>254</integer>
-							<integer>255</integer>
-							<integer>255</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>backgroundSpriteFrame|3</string>
-						<key>type</key>
-						<string>SpriteFrame</string>
-						<key>value</key>
-						<array>
-							<string>ccbResources/ccbDefaultImages.plist</string>
-							<string>ccbButtonDisabled.png</string>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>titleColor|3</string>
-						<key>type</key>
-						<string>Color3</string>
-						<key>value</key>
-						<array>
-							<integer>254</integer>
-							<integer>255</integer>
-							<integer>255</integer>
-						</array>
+						<string>All Copyright Reserved 2014
+  Developed by zhouyizirui</string>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
