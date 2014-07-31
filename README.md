@@ -4,11 +4,16 @@ This is a repository of a little cross platform game named 《Zoo Keeper》, thi
 
 ## For ios users
 
-Open proj.ios, double click the .xcodeproj, then run it.
+1. Open proj.ios
+2. Double click the .xcodeproj 
+3. Run the project in Xcode
+4. That's it
 
 ## For Android users
 
-Open proj.android, follow the steps in README step by step, then you will get it work. 
+1. Open proj.android
+2. Follow the steps in README step by step 
+3. Get it work. 
 
 ## The Game
 
