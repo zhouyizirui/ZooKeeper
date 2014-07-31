@@ -15,8 +15,11 @@ This is a repository of a little cross platform game named 《Zoo Keeper》, thi
 2. Follow the steps in README step by step 
 3. Get it work. 
 
-## The Game
-
+## Zoo Feeder on real machine
+### Testing Environment
+	* HTC Incredible S(G11)
+	* Android 4.0.4
+	* Resolution 800*480
 #### Main menu
 ![Example](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/main.png)
 This is the main menu of the game. Click the "play" button to start.
