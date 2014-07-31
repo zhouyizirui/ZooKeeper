@@ -30,19 +30,19 @@ This is the game scene of the game. Tap on the left side of the screen to send a
 
 #### A lion is generated
 ![Lion](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/lion.png)
-A lion is coming !!! Feed it !
+A lion is coming! Feed it!
 
-#### Feed her
+#### Feed it
 ![Meet](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/throw.png)
-Send a plate of meet to feed her !
+Tap on the left side of the screen to send a plate of meet (remember to send it on the same line)!
 
 #### Collect the plate
 ![Plate](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/plate.png)
-Look, the lion eat the meet the send back the plate. Now the lion will move back a constant distance, remember to collect the plate!
+Look, the lion eat the meet the send back the plate. Now the lion will move back a constant distance, if the lion move of the screen, you get 100 points. Don't forget to collect the plate, or you will lose 50 points!
 
 #### Lion eat you
 ![Eat](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/dead.png)
-The lion come to your place, you are bitten~
+If you failed to stop the lions, they come to your place, and you are bitten~
 
 #### Game over
 ![Over](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/over.png)
