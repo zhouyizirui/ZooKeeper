@@ -74,9 +74,9 @@ There are two ways of building Android projects.
 
 
 ### Running project from Command Line
+#### Remember to edit the Android.mk file in proj.android/jni first(add the cpp files to it)
 
-    $ cd cocos2d-x/samples/Cpp/TestCpp/proj.android/
-    $ export NDK_ROOT=/path/to/ndk
+    $ cd cocos2d-x/projects/ZooKeeper/proj.android/
     $ ./build_native.sh
     $ ant debug install
 
