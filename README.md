@@ -28,8 +28,23 @@ A lion is coming !!! Feed it !
 ![Meet](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/throw.png)
 Send a plate of meet to feed her !
 
-### Collect the plate
+#### Collect the plate
 ![Plate](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/plate.png)
 Remember to collect the plate !
 
+#### Lion eat you
+![Eat](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/dead.png)
+The lion come to your place, you are bitten~
+
+#### Game over
+![Over](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/over.png)
+OK, the game is over, we got 600 points.
+
+#### High score
+![Score](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/score.png)
+Look, we are ranking at the third place.
+
+#### About Scene
+![About](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/tutorial.png)
+The game tutorial, which is designed by zhouyizirui.
 Enjoy it :-)
