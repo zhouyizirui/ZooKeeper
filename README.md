@@ -52,4 +52,6 @@ Look, we are ranking at the third place.
 #### About Scene
 ![About](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/tutorial.png)
 The game tutorial, which is designed by zhouyizirui.
+
+
 Enjoy it :-)
