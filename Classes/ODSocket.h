@@ -1,9 +1,9 @@
 //
-//  ODSocket.h
-//  GameServer
+//  SocketThread.cpp
+//  Thenet
 //
-//  Created by Yarin on 13-4-17.
-//  Copyright (c) 2013年 MOTE-TOP. All rights reserved.
+//  Created by zhouyizirui on 8/2/14.
+//
 //
 
 #ifndef __GameServer__ODSocket__

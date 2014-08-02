@@ -1,6 +1,6 @@
 //
 //  SocketThread.h
-//  Thenet
+//  ZooKeeper
 //
 //  Created by zhouyizirui on 8/2/14.
 //
