@@ -53,6 +53,7 @@ SEL_CCControlHandler HighScore::onResolveCCBCCControlSelector(cocos2d::CCObject 
 
 void HighScore::menuBackCallback(CCObject *pSender)
 {
+    SocketThread::getInstance()->stop();
     CCDirector::sharedDirector()->popScene();
     AudioControl::resumeBackground();
 }
@@ -82,6 +83,14 @@ bool HighScore::init()
     m_labelScores = CCLabelTTF::create("", "Marker Felt", 38);
     m_labelScores->setPosition(ccp(400, 250));
     this->addChild(m_labelScores, 4);
+    
+    CCLOG("The socket is ready");
+    char data[10];
+    sprintf(data, "%d", highScores[0]);
+    SocketThread::setData(data, 10);
+    SocketThread::getInstance()->start();
+    //SocketThread::getInstance()->stop();
+    CCLOG("The socket is run out");
     
     CCLabelTTF * topLabel = CCLabelTTF::create("High Scores", "Marker Felt", 46);
     topLabel->setPosition(ccp(400, 360));

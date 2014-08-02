@@ -22,6 +22,8 @@
 #include "GameScene.h"
 #include "AudioControl.h"
 #include "FileHelper.h"
+#include "ODSocket.h"
+#include "SocketThread.h"
 #include "tinyxml.h"
 
 USING_NS_CC;

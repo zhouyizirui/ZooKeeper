@@ -259,6 +259,8 @@
 		D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949B15BD2D8E00D803EB /* Icon-114.png */; };
 		D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949D15BD2D9600D803EB /* Icon-72.png */; };
 		D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949F15BD2D9800D803EB /* Icon-144.png */; };
+		EF162B0E198CD0F2003EF3BD /* ODSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EF162B0A198CD0F2003EF3BD /* ODSocket.cpp */; };
+		EF162B0F198CD0F2003EF3BD /* SocketThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EF162B0C198CD0F2003EF3BD /* SocketThread.cpp */; };
 		EF4CCB6E197CF01A0024894F /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EF4CCB6C197CF01A0024894F /* GameScene.cpp */; };
 		EF4CCB73197CF0E00024894F /* Ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = EF4CCB6F197CF0E00024894F /* Ding.wav */; };
 		EF4CCB74197CF0E00024894F /* GameScene.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = EF4CCB70197CF0E00024894F /* GameScene.ccbi */; };
@@ -829,6 +831,10 @@
 		D4EF949D15BD2D9600D803EB /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../proj.ios/Icon-72.png"; sourceTree = "<group>"; };
 		D4EF949F15BD2D9800D803EB /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "../proj.ios/Icon-144.png"; sourceTree = "<group>"; };
 		D4F9F37B12E54555005CA6D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		EF162B0A198CD0F2003EF3BD /* ODSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ODSocket.cpp; sourceTree = "<group>"; };
+		EF162B0B198CD0F2003EF3BD /* ODSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSocket.h; sourceTree = "<group>"; };
+		EF162B0C198CD0F2003EF3BD /* SocketThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SocketThread.cpp; sourceTree = "<group>"; };
+		EF162B0D198CD0F2003EF3BD /* SocketThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketThread.h; sourceTree = "<group>"; };
 		EF247E3A197F988F00259390 /* GameConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConstant.h; sourceTree = "<group>"; };
 		EF4CCB6C197CF01A0024894F /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		EF4CCB6D197CF01A0024894F /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
@@ -1401,6 +1407,10 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EF162B0A198CD0F2003EF3BD /* ODSocket.cpp */,
+				EF162B0B198CD0F2003EF3BD /* ODSocket.h */,
+				EF162B0C198CD0F2003EF3BD /* SocketThread.cpp */,
+				EF162B0D198CD0F2003EF3BD /* SocketThread.h */,
 				EFBB60EA1982A03500BFD270 /* AppMacros.h */,
 				EFBB60EB1982A03500BFD270 /* tinystr.cpp */,
 				EFBB60EC1982A03500BFD270 /* tinystr.h */,
@@ -2211,6 +2221,7 @@
 				15A3D9031682F7D5002FB0C5 /* b2Collision.cpp in Sources */,
 				15A3D9041682F7D5002FB0C5 /* b2Distance.cpp in Sources */,
 				15A3D9051682F7D5002FB0C5 /* b2DynamicTree.cpp in Sources */,
+				EF162B0F198CD0F2003EF3BD /* SocketThread.cpp in Sources */,
 				15A3D9061682F7D5002FB0C5 /* b2TimeOfImpact.cpp in Sources */,
 				15A3D9071682F7D5002FB0C5 /* b2ChainShape.cpp in Sources */,
 				15A3D9081682F7D5002FB0C5 /* b2CircleShape.cpp in Sources */,
@@ -2410,6 +2421,7 @@
 				379BB9A517F03F3700829B88 /* CCColliderDetector.cpp in Sources */,
 				379BB9A617F03F3700829B88 /* CCArmatureDataManager.cpp in Sources */,
 				379BB9A717F03F3700829B88 /* CCArmatureDefine.cpp in Sources */,
+				EF162B0E198CD0F2003EF3BD /* ODSocket.cpp in Sources */,
 				379BB9A817F03F3700829B88 /* CCDataReaderHelper.cpp in Sources */,
 				379BB9A917F03F3700829B88 /* CCSpriteFrameCacheHelper.cpp in Sources */,
 				379BB9AA17F03F3700829B88 /* CCTransformHelp.cpp in Sources */,

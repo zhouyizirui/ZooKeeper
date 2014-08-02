@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D341BE32-0704-4B6B-98FF-4B57575AC659</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GameServer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5EDB116A-779E-44C2-959A-887163B02F87</key>
+		<string>ssh://github.com/zhouyizirui/ZooKeeper.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GameServer/GameServer.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5EDB116A-779E-44C2-959A-887163B02F87</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/zhouyizirui/ZooKeeper.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5EDB116A-779E-44C2-959A-887163B02F87</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5EDB116A-779E-44C2-959A-887163B02F87</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ZooKeeper</string>
+		</dict>
+	</array>
+</dict>
+</plist>
