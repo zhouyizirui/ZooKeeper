@@ -50,7 +50,7 @@ OK, the game is over, we got 600 points.
 
 #### High score
 ![Score](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/score.png)
-Look, we are ranking at the third place.
+Look, we are ranking at the third place. Evertime the system will send the highest score on your phone to the game server, cheer up.
 
 #### About Scene
 ![About](https://github.com/zhouyizirui/ZooKeeper/blob/master/pictures/tutorial.png)
