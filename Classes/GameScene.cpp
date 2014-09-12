@@ -53,7 +53,7 @@ GameScene::~GameScene()
     CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
     
     CC_SAFE_RELEASE(manSprite);
-    CC_SAFE_DELETE(m_labelScore);
+    CC_SAFE_RELEASE(m_labelScore);
     
     CC_SAFE_RELEASE(lionArray);
     CC_SAFE_RELEASE(meetArray);
@@ -107,6 +107,7 @@ bool GameScene::init()
     manSprite = CCSprite::create("Feeder_The.png");
     manSprite->setPosition(manPositions[0]);
     manSprite->setScale(0.15);
+    manSprite->retain();
     this->addChild(manSprite, 3);
     
     //Create the close menu sprite

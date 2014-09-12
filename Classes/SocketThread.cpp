@@ -78,8 +78,9 @@ ODSocket SocketThread::getSocket(){
 }
 
 void SocketThread::stop(){
-	pthread_cancel(pid);
+	//pthread_cancel(pid);
 	pthread_detach(pid);
+    return;
 }
 
 

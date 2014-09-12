@@ -21,6 +21,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/tinyxml.cpp \
                    ../../Classes/tinyxmlerror.cpp \
                    ../../Classes/tinyxmlparser.cpp \
+                   ../../Classes/ODSocket.cpp \
+                   ../../Classes/SocketThread.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
